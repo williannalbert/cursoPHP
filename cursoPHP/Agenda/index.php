@@ -1,18 +1,40 @@
 <?php
-    include_once("config/url.php")
-
+    include_once("templates/header.php")
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="<?= $BASE_URL?>css/style.css">
-    <title>Projeto Agenda</title>
-</head>
-<body>
-    Teste
-</body>
-</html>
+    <div class="container">
+        <?php if(isset($printMsg) && $printMsg != ''): ?>
+            <p id="msg"><?= $printMsg?></p>
+        <?php endif; ?>
+        <h1 id="main-title">Minha Agenda</h1>
+        <?php if(count($contacts) > 0): ?>
+            <table class="table" id="contacts-table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($contacts as $contact): ?> 
+                        <tr>
+                            <td scope="row"><?= $contact["id"]?></td>
+                            <td scope="row"><?= $contact["name"]?></td>
+                            <td scope="row"><?= $contact["phone"]?></td>
+                            <td class="actions">
+                                <a href="#"><i class="fas fa-eye check-icon"></i></a>
+                                <a href="#"><i class="far fa-edit edit-icon"></i></a>
+                                <button type="submit"><i class="fas fa-times delete-icon"></i></button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p id="empty-list-text">Ainda não há contatos cadastrados, <a href="<?= $BASE_URL ?>create.php">clique aqui para adicionar.</a></p>
+        <?php endif; ?>
+    </div>
+<?php
+    include_once("templates/footer.php")
+?>

@@ -50,3 +50,38 @@
     border: none;
     padding: 0;
 }
+
+#view-contact-container{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+#back-link-container{
+    display: block;
+    width: 500px;
+    margin: 30px auto 0;
+}
+#back-link{
+    border: 1px solid #007bff;
+    color: #007bff;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+#create-form, #edit-form{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.delete-form{
+    display: inline-block;
+}
+@media(max-width:480px){
+    #home-link{
+        display: none;
+    }
+}

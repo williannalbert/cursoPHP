@@ -12,16 +12,41 @@
 }
 #contacts-table thead{
     color: #fff;
-    background-color: blue;
+    background-color: #007bff;
 }
 #empty-list-text{
     text-align: center;
 }
 #msg{
     color: green;
-    background-color: lightgray;
-    border: 1px solid gray;
+    background-color: lightgreen;
+    border: 1px solid rgb(192, 192, 192);
     padding: 10px;
     text-align: center;
     max-width: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.action{
+    text-align: right;
+    width: 150px;
+}
+.action i{
+    font-size: 18px;
+    margin-right: 5px;
+}
+.check-icon{
+    color: green;
+}
+.delete-icon{
+    color: red;
+}
+.edit-icon{
+    color: #007bff;
+}
+.delete-btn{
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
